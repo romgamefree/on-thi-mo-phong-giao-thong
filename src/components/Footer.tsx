@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Col 1: System Branding & Authority */}
         <div className="space-y-3">
           <div className="flex items-center gap-2 text-white font-bold text-sm tracking-wide uppercase">
-            <ShieldCheck size={20} className="text-blue-400" />
+            <img src="/favicon.svg" alt="Logo" className="w-5 h-5 rounded" />
             <span>Hệ Thống Sát Hạch Mô Phỏng</span>
           </div>
           <p className="text-slate-400 text-xs leading-relaxed">

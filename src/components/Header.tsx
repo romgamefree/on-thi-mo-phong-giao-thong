@@ -37,9 +37,11 @@ export const Header: React.FC<HeaderProps> = ({ onGoHome, currentMode = 'home', 
           onClick={() => handleNav('home')}
           className="cursor-pointer group flex items-center gap-2.5"
         >
-          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center font-bold text-white border border-white/20">
-            120
-          </div>
+          <img
+            src="/favicon.svg"
+            alt="Logo Mô Phỏng Giao Thông"
+            className="w-8 h-8 rounded-lg shadow-sm object-cover border border-white/20"
+          />
           <div>
             <span className="text-base sm:text-lg font-bold tracking-wide uppercase block leading-tight group-hover:text-blue-100 transition-colors">
               HỆ THỐNG ÔN TẬP VÀ THI THỬ MÔ PHỎNG GIAO THÔNG

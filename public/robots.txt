@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Allow indexing of all educational simulation content and data
+Allow: /TestsData.json
+Allow: /SituationsData.json
+
+Sitemap: https://mo-phong-giao-thong.ai.studio/sitemap.xml

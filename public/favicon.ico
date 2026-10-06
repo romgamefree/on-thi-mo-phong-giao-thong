@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base Card -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.4" />
+
+  <!-- Road Perspective -->
+  <path d="M 12 56 L 24 30 L 40 30 L 52 56 Z" fill="#1e293b" />
+  <!-- Road Dashed Center Line -->
+  <line x1="32" y1="32" x2="32" y2="40" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="32" y1="46" x2="32" y2="54" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Front Car / Dashboard Silhouette -->
+  <!-- Windshield / Car Top -->
+  <path d="M 20 44 L 25 35 L 39 35 L 44 44 Z" fill="#0284c7" opacity="0.9" />
+  <!-- Car Body -->
+  <rect x="17" y="43" width="30" height="11" rx="3.5" fill="url(#carGrad)" />
+  <!-- Headlights -->
+  <ellipse cx="21" cy="48" rx="2.5" ry="1.5" fill="#fef08a" filter="url(#glow)" />
+  <ellipse cx="43" cy="48" rx="2.5" ry="1.5" fill="#fef08a" filter="url(#glow)" />
+
+  <!-- Mini Traffic Light in Top-Right -->
+  <rect x="42" y="8" width="13" height="23" rx="6.5" fill="#090d16" stroke="#475569" stroke-width="1" />
+  <circle cx="48.5" cy="13" r="2.5" fill="#ef4444" />
+  <circle cx="48.5" cy="19.5" r="2.5" fill="#eab308" />
+  <circle cx="48.5" cy="26" r="2.5" fill="#22c55e" filter="url(#glow)" />
+
+  <!-- Hazard / Steering Warning Symbol in Top-Left (Hazard Triangle) -->
+  <path d="M 16 11 L 25 26 L 7 26 Z" fill="#f59e0b" stroke="#78350f" stroke-width="1" stroke-linejoin="round" />
+  <line x1="16" y1="16" x2="16" y2="21" stroke="#000000" stroke-width="1.8" stroke-linecap="round" />
+  <circle cx="16" cy="24" r="1" fill="#000000" />
+</svg>
