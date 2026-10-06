@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { HomeMode } from './components/HomeMode';
 import { StudyMode } from './components/StudyMode';
 import { ExamSelectMode } from './components/ExamSelectMode';
 import { ExamTestMode } from './components/ExamTestMode';
+import { GuideMode } from './components/GuideMode';
+import { AboutMode } from './components/AboutMode';
+import { PolicyTermsMode } from './components/PolicyTermsMode';
+import { ContactMode } from './components/ContactMode';
 import { EXAM_SETS } from './data/examData';
 
-export type AppMode = 'home' | 'study' | 'select_exam' | 'exam';
+export type AppMode = 'home' | 'study' | 'select_exam' | 'exam' | 'guide' | 'about' | 'policy' | 'contact';
 
 export interface ExamHistoryItem {
   score: number;
@@ -18,6 +23,11 @@ export default function App() {
   const [mode, setMode] = useState<AppMode>('home');
   const [selectedExamId, setSelectedExamId] = useState<number>(1);
   const [history, setHistory] = useState<Record<number, ExamHistoryItem>>({});
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [mode]);
 
   // Load history from localStorage
   useEffect(() => {
@@ -66,8 +76,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-[#f4f7fa] antialiased">
-      {/* Top Header */}
-      <Header onGoHome={() => setMode('home')} />
+      {/* Top Header with Navigation */}
+      <Header
+        onGoHome={() => setMode('home')}
+        currentMode={mode}
+        onNavigate={setMode}
+      />
 
       {/* Main Body per Active View */}
       <main className="flex-1 flex flex-col">
@@ -105,7 +119,40 @@ export default function App() {
             onSaveHistory={handleSaveHistory}
           />
         )}
+
+        {mode === 'guide' && (
+          <GuideMode
+            onGoHome={() => setMode('home')}
+            onGoToStudy={() => setMode('study')}
+            onGoToExams={() => setMode('select_exam')}
+          />
+        )}
+
+        {mode === 'about' && (
+          <AboutMode
+            onGoHome={() => setMode('home')}
+            onGoToStudy={() => setMode('study')}
+            onGoToExams={() => setMode('select_exam')}
+          />
+        )}
+
+        {mode === 'policy' && (
+          <PolicyTermsMode
+            onGoHome={() => setMode('home')}
+          />
+        )}
+
+        {mode === 'contact' && (
+          <ContactMode
+            onGoHome={() => setMode('home')}
+          />
+        )}
       </main>
+
+      {/* Footer on all pages except active examination screen to maximize exam screen space */}
+      {mode !== 'exam' && (
+        <Footer onNavigate={setMode} />
+      )}
     </div>
   );
 }
