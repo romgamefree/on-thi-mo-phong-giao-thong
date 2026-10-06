@@ -1,0 +1,8 @@
+{
+  "name": "Ôn Tập 120 Tình Huống Mô Phỏng Giao Thông – Thi Thử 18 Bộ Đề Sát Hạch B2, B1, C",
+  "description": "Phần mềm ôn tập 120 tình huống mô phỏng giao thông và thi thử 18 bộ đề sát hạch giấy phép lái xe ô tô mới nhất theo chuẩn Cục Đường Bộ Việt Nam.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
